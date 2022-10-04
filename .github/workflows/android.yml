@@ -10,9 +10,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: 17
+#        with:
+#          distribution: 'zulu'
+#          java-version: 17
       - uses: gradle/gradle-build-action@v2
       - name: Lint Android
         run: ./gradlew wrapper --gradle-version=6.8.3 && ./gradlew lint
