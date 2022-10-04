@@ -13,9 +13,11 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 17
+          gradle-version: '7.5.1'
       - uses: gradle/gradle-build-action@v2
       - name: Lint Android
-        run: sudo curl -s "https://get.sdkman.io" | bash && sudo source "/home/`whoami`/.sdkman/bin/sdkman-init.sh" && sudo sdk use gradle 7.5.1 && ./gradlew lint
+        run: ./gradlew lint
+        #run: sudo curl -s "https://get.sdkman.io" | bash && sudo source "/home/`whoami`/.sdkman/bin/sdkman-init.sh" && sudo sdk use gradle 7.5.1 && ./gradlew lint
 
   build:
     runs-on: ubuntu-latest
@@ -28,4 +30,4 @@ jobs:
           gradle-version: '7.5.1'
       - uses: gradle/gradle-build-action@v2
       - name: Build
-        run: sdk use gradle 7.5.1 && ./gradlew app:assemble
+        run: ./gradlew app:assemble
