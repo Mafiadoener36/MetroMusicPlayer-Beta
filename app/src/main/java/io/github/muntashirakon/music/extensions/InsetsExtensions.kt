@@ -4,7 +4,7 @@ import androidx.core.view.WindowInsetsCompat
 import io.github.muntashirakon.music.util.PreferenceUtil
 import io.github.muntashirakon.music.util.RetroUtil
 
-fun WindowInsetsCompat?.safeGetBottomInsets(): Int {
+fun WindowInsetsCompat?.getBottomInsets(): Int {
     return if (PreferenceUtil.isFullScreenMode) {
         return 0
     } else {

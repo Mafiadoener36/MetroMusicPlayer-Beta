@@ -14,7 +14,6 @@
  */
 package io.github.muntashirakon.music.fragments.other
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
@@ -23,7 +22,6 @@ import android.text.style.ForegroundColorSpan
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.DecelerateInterpolator
 import androidx.core.text.toSpannable
 import androidx.core.view.isVisible
 import io.github.muntashirakon.music.R
@@ -66,7 +64,10 @@ open class MiniPlayerFragment : AbsMusicServiceFragment(R.layout.fragment_mini_p
         _binding = FragmentMiniPlayerBinding.bind(view)
         view.setOnTouchListener(FlingPlayBackController(requireContext()))
         setUpMiniPlayer()
+        setUpButtons()
+    }
 
+    fun setUpButtons() {
         if (RetroUtil.isTablet) {
             binding.actionNext.show()
             binding.actionPrevious.show()
@@ -136,10 +137,7 @@ open class MiniPlayerFragment : AbsMusicServiceFragment(R.layout.fragment_mini_p
 
     override fun onUpdateProgressViews(progress: Int, total: Int) {
         binding.progressBar.max = total
-        val animator = ObjectAnimator.ofInt(binding.progressBar, "progress", progress)
-        animator.duration = 1000
-        animator.interpolator = DecelerateInterpolator()
-        animator.start()
+        binding.progressBar.progress = progress
     }
 
     override fun onResume() {

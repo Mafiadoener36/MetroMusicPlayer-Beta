@@ -16,7 +16,7 @@ import code.name.monkey.appthemehelper.util.VersionUtils
 import io.github.muntashirakon.music.R
 import io.github.muntashirakon.music.util.PreferenceUtil
 
-fun AppCompatActivity.toggleScreenOn() {
+fun AppCompatActivity.maybeSetScreenOn() {
     if (PreferenceUtil.isScreenOnEnabled) {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     } else {
