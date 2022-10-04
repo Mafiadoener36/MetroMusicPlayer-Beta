@@ -2,6 +2,12 @@ name: Android CI
 
 on: [workflow_dispatch]
 
+#https://www.youtube.com/watch?v=8p3gdc1jqw8
+#https://gradle.org/releases/
+#https://mkyong.com/java/list-of-java-class-file-major-version-numbers/
+#https://docs.gradle.org/6.0/release-notes.html
+
+
 jobs:
   check:
     runs-on: ubuntu-latest
